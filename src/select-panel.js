@@ -130,7 +130,7 @@ class SelectPanel extends Component<Props, State> {
     }
 
     render() {
-        const {focusIndex, searchHasFocus} = this.state;
+        const {focusIndex, searchHasFocus, searchText} = this.state;
         const {
             ItemRenderer,
             selectAllLabel,
@@ -165,7 +165,7 @@ class SelectPanel extends Component<Props, State> {
                 />
             </div>}
 
-            {hasSelectAll &&
+            {hasSelectAll && !searchText &&
               <SelectItem
                   focused={focusIndex === 0}
                   checked={this.allAreSelected()}
@@ -200,6 +200,7 @@ const styles = {
         height: '47px',
         lineHeight: '47px',
         border: 'none',
+        color: '#666666',
         borderBottom: '1px solid #e6e6e6',
         padding: '10px 15px',
         width: "100%",
