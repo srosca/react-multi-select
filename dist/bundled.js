@@ -1045,6 +1045,8 @@ var MultiSelect = function (_Component) {
         key: 'render',
         value: function render() {
             var _props3 = this.props,
+                _props3$id = _props3.id,
+                id = _props3$id === undefined ? 'multi-select' : _props3$id,
                 ItemRenderer = _props3.ItemRenderer,
                 options = _props3.options,
                 selected = _props3.selected,
@@ -1059,7 +1061,7 @@ var MultiSelect = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'multi-select' },
+                { className: 'multi-select', id: id },
                 _react2.default.createElement(
                     _dropdown2.default,
                     {
