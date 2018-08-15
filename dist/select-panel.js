@@ -156,7 +156,8 @@ var SelectPanel = function (_Component) {
 
             var _state = this.state,
                 focusIndex = _state.focusIndex,
-                searchHasFocus = _state.searchHasFocus;
+                searchHasFocus = _state.searchHasFocus,
+                searchText = _state.searchText;
             var _props3 = this.props,
                 ItemRenderer = _props3.ItemRenderer,
                 selectAllLabel = _props3.selectAllLabel,
@@ -196,7 +197,7 @@ var SelectPanel = function (_Component) {
                         }
                     })
                 ),
-                hasSelectAll && _react2.default.createElement(_selectItem2.default, {
+                hasSelectAll && !searchText && _react2.default.createElement(_selectItem2.default, {
                     focused: focusIndex === 0,
                     checked: this.allAreSelected(),
                     option: selectAllOption,
@@ -234,6 +235,7 @@ var styles = {
         height: '47px',
         lineHeight: '47px',
         border: 'none',
+        color: '#666666',
         borderBottom: '1px solid #e6e6e6',
         padding: '10px 15px',
         width: "100%",
