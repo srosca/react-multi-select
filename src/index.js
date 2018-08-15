@@ -22,6 +22,7 @@ import type {
 } from './select-item.js';
 
 type Props = {
+    id?: string,
     options: Array<Option>,
     selected: Array<any>,
     onSelectedChanged?: (selected: Array<any>) => void,
@@ -100,6 +101,7 @@ class MultiSelect extends Component<Props> {
 
     render() {
         const {
+            id = 'multi-select',
             ItemRenderer,
             options,
             selected,
@@ -112,7 +114,7 @@ class MultiSelect extends Component<Props> {
             hasSelectAll,
         } = this.props;
 
-        return <div className="multi-select">
+        return <div className="multi-select" id={id}>
             <Dropdown
                 isLoading={isLoading}
                 contentComponent={SelectPanel}

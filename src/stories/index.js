@@ -130,6 +130,7 @@ class StatefulMultiSelect extends Component<SMSProps, SMSState> {
 
     render() {
         const {
+            id,
             ItemRenderer,
             options,
             selectAllLabel,
@@ -143,6 +144,7 @@ class StatefulMultiSelect extends Component<SMSProps, SMSState> {
 
         return <div>
             <MultiSelect
+                id={id}
                 options={options}
                 onSelectedChanged={this.handleSelectedChanged.bind(this)}
                 selected={selected}
@@ -213,6 +215,7 @@ storiesOf('MultiSelect', module)
     .add('long list view', () => <StatefulMultiSelect options={longList} />)
     .add('United States', () => <StatefulMultiSelect options={statesList} />)
     .add('Custom Heading Renderer', () => <StatefulMultiSelect
+        id="some-id"
         options={studentsList}
         valueRenderer={studentValueRenderer}
         selectAllLabel="All students"
