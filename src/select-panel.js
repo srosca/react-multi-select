@@ -154,6 +154,17 @@ class SelectPanel extends Component<Props, State> {
             role="listbox"
             onKeyDown={this.handleKeyDown}
         >
+            {!disableSearch && <div style={styles.searchContainer}>
+                <input
+                    placeholder="Search"
+                    type="text"
+                    onChange={this.handleSearchChange}
+                    style={{...styles.search, ...focusedSearchStyle}}
+                    onFocus={() => this.handleSearchFocus(true)}
+                    onBlur={() => this.handleSearchFocus(false)}
+                />
+            </div>}
+
             {hasSelectAll &&
               <SelectItem
                   focused={focusIndex === 0}
@@ -165,17 +176,6 @@ class SelectPanel extends Component<Props, State> {
                   disabled={disabled}
               />
             }
-
-            {!disableSearch && <div style={styles.searchContainer}>
-                <input
-                    placeholder="Search"
-                    type="text"
-                    onChange={this.handleSearchChange}
-                    style={{...styles.search, ...focusedSearchStyle}}
-                    onFocus={() => this.handleSearchFocus(true)}
-                    onBlur={() => this.handleSearchFocus(false)}
-                />
-            </div>}
 
             <SelectList
                 {...this.props}
@@ -198,20 +198,19 @@ const styles = {
         maxWidth: "100%",
         boxSizing : 'border-box',
         height: '47px',
-        lineHeight: '45px',
+        lineHeight: '47px',
         border: 'none',
+        borderBottom: '1px solid #e6e6e6',
         padding: '10px 15px',
         width: "100%",
         outline: "none",
     },
     searchFocused: {
-        borderColor: "#cfd4d9",
+        borderBottom: '1px solid #cfd4d9',
     },
     searchContainer: {
         width: "100%",
         boxSizing : 'border-box',
-        borderTop: '1px solid #cfd4d9',
-        borderBottom: '1px solid #cfd4d9',
     },
 };
 

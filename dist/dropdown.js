@@ -271,7 +271,7 @@ var styles = {
         bottom: 0,
         color: '#333',
         left: 0,
-        lineHeight: '47px',
+        lineHeight: '45px',
         paddingLeft: 15,
         paddingRight: 15,
         position: 'absolute',

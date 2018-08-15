@@ -174,7 +174,7 @@ const styles = {
     itemRenderer: {
         display: 'flex',
         justifyContent: 'space-between',
-    }
+    },
 };
 
 export default SelectItem;
