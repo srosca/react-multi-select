@@ -48,20 +48,21 @@ var DefaultItemRenderer = function (_Component) {
             return _react2.default.createElement(
                 "span",
                 {
-                    className: "item-renderer"
+                    className: "item-renderer",
+                    style: _extends({}, styles.itemRenderer)
                 },
+                _react2.default.createElement(
+                    "span",
+                    { style: style },
+                    option.label
+                ),
                 _react2.default.createElement("input", {
                     type: "checkbox",
                     onChange: onClick,
                     checked: checked,
                     tabIndex: "-1",
                     disabled: disabled
-                }),
-                _react2.default.createElement(
-                    "span",
-                    { style: style },
-                    option.label
-                )
+                })
             );
         }
     }]);
@@ -198,7 +199,7 @@ var styles = {
         color: '#666666',
         cursor: 'pointer',
         display: 'block',
-        padding: '8px 10px'
+        padding: '12px 15px'
     },
     itemContainerHover: {
         backgroundColor: '#ebf5ff',
@@ -214,6 +215,10 @@ var styles = {
     },
     labelDisabled: {
         opacity: 0.5
+    },
+    itemRenderer: {
+        display: 'flex',
+        justifyContent: 'space-between'
     }
 };
 

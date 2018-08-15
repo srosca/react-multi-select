@@ -154,17 +154,6 @@ class SelectPanel extends Component<Props, State> {
             role="listbox"
             onKeyDown={this.handleKeyDown}
         >
-            {!disableSearch && <div style={styles.searchContainer}>
-                <input
-                    placeholder="Search"
-                    type="text"
-                    onChange={this.handleSearchChange}
-                    style={{...styles.search, ...focusedSearchStyle}}
-                    onFocus={() => this.handleSearchFocus(true)}
-                    onBlur={() => this.handleSearchFocus(false)}
-                />
-            </div>}
-
             {hasSelectAll &&
               <SelectItem
                   focused={focusIndex === 0}
@@ -176,6 +165,17 @@ class SelectPanel extends Component<Props, State> {
                   disabled={disabled}
               />
             }
+
+            {!disableSearch && <div style={styles.searchContainer}>
+                <input
+                    placeholder="Search"
+                    type="text"
+                    onChange={this.handleSearchChange}
+                    style={{...styles.search, ...focusedSearchStyle}}
+                    onFocus={() => this.handleSearchFocus(true)}
+                    onBlur={() => this.handleSearchFocus(false)}
+                />
+            </div>}
 
             <SelectList
                 {...this.props}
@@ -195,26 +195,23 @@ const styles = {
     },
     search: {
         display: "block",
-
         maxWidth: "100%",
-        borderRadius: "3px",
-
         boxSizing : 'border-box',
-        height: '30px',
-        lineHeight: '24px',
-        border: '1px solid',
-        borderColor: '#dee2e4',
-        padding: '10px',
+        height: '47px',
+        lineHeight: '45px',
+        border: 'none',
+        padding: '10px 15px',
         width: "100%",
         outline: "none",
     },
     searchFocused: {
-        borderColor: "#78c008",
+        borderColor: "#cfd4d9",
     },
     searchContainer: {
         width: "100%",
         boxSizing : 'border-box',
-        padding: "0.5em",
+        borderTop: '1px solid #cfd4d9',
+        borderBottom: '1px solid #cfd4d9',
     },
 };
 

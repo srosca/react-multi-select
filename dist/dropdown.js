@@ -229,7 +229,7 @@ var Dropdown = function (_Component) {
     return Dropdown;
 }(_react.Component);
 
-var focusColor = '#78c008';
+var focusColor = '#1298d4';
 
 var styles = {
     dropdownArrow: {
@@ -240,7 +240,7 @@ var styles = {
         textAlign: 'center',
         verticalAlign: 'middle',
         width: 25,
-        paddingRight: 5
+        paddingRight: 10
     },
     dropdownArrowDown: {
         boxSizing: 'border-box',
@@ -271,9 +271,9 @@ var styles = {
         bottom: 0,
         color: '#333',
         left: 0,
-        lineHeight: '34px',
-        paddingLeft: 10,
-        paddingRight: 10,
+        lineHeight: '47px',
+        paddingLeft: 15,
+        paddingRight: 15,
         position: 'absolute',
         right: 0,
         top: 0,
@@ -293,17 +293,14 @@ var styles = {
     dropdownHeader: {
         boxSizing: 'border-box',
         backgroundColor: '#fff',
-        borderColor: '#d9d9d9 #ccc #b3b3b3',
-        borderRadius: 4,
-        borderBottomRightRadius: 4,
-        borderBottomLeftRadius: 4,
+        borderColor: '#cfd4d9',
         border: '1px solid #ccc',
         color: '#333',
         cursor: 'default',
         display: 'table',
         borderSpacing: 0,
         borderCollapse: 'separate',
-        height: 36,
+        height: 47,
         outline: 'none',
         overflow: 'hidden',
         position: 'relative',
@@ -324,8 +321,6 @@ var styles = {
         width: '16px'
     },
     panelContainer: {
-        borderBottomRightRadius: '4px',
-        borderBottomLeftRadius: '4px',
         backgroundColor: '#fff',
         border: '1px solid #ccc',
         borderTopColor: '#e6e6e6',

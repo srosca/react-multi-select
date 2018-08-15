@@ -180,6 +180,17 @@ var SelectPanel = function (_Component) {
                     role: 'listbox',
                     onKeyDown: this.handleKeyDown
                 },
+                hasSelectAll && _react2.default.createElement(_selectItem2.default, {
+                    focused: focusIndex === 0,
+                    checked: this.allAreSelected(),
+                    option: selectAllOption,
+                    onSelectionChanged: this.selectAllChanged,
+                    onClick: function onClick() {
+                        return _this2.handleItemClicked(0);
+                    },
+                    ItemRenderer: ItemRenderer,
+                    disabled: disabled
+                }),
                 !disableSearch && _react2.default.createElement(
                     'div',
                     { style: styles.searchContainer },
@@ -196,17 +207,6 @@ var SelectPanel = function (_Component) {
                         }
                     })
                 ),
-                hasSelectAll && _react2.default.createElement(_selectItem2.default, {
-                    focused: focusIndex === 0,
-                    checked: this.allAreSelected(),
-                    option: selectAllOption,
-                    onSelectionChanged: this.selectAllChanged,
-                    onClick: function onClick() {
-                        return _this2.handleItemClicked(0);
-                    },
-                    ItemRenderer: ItemRenderer,
-                    disabled: disabled
-                }),
                 _react2.default.createElement(_selectList2.default, _extends({}, this.props, {
                     options: this.filteredOptions(),
                     focusIndex: focusIndex - 1,
@@ -229,26 +229,23 @@ var styles = {
     },
     search: {
         display: "block",
-
         maxWidth: "100%",
-        borderRadius: "3px",
-
         boxSizing: 'border-box',
-        height: '30px',
-        lineHeight: '24px',
-        border: '1px solid',
-        borderColor: '#dee2e4',
-        padding: '10px',
+        height: '47px',
+        lineHeight: '45px',
+        border: 'none',
+        padding: '10px 15px',
         width: "100%",
         outline: "none"
     },
     searchFocused: {
-        borderColor: "#78c008"
+        borderColor: "#cfd4d9"
     },
     searchContainer: {
         width: "100%",
         boxSizing: 'border-box',
-        padding: "0.5em"
+        borderTop: '1px solid #cfd4d9',
+        borderBottom: '1px solid #cfd4d9'
     }
 };
 

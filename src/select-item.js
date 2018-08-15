@@ -29,7 +29,11 @@ class DefaultItemRenderer extends Component<DefaultItemRendererProps> {
 
         return <span
             className="item-renderer"
+            style={{...styles.itemRenderer}}
         >
+            <span style={style}>
+                {option.label}
+            </span>
             <input
                 type="checkbox"
                 onChange={onClick}
@@ -37,9 +41,6 @@ class DefaultItemRenderer extends Component<DefaultItemRendererProps> {
                 tabIndex="-1"
                 disabled={disabled}
             />
-            <span style={style}>
-                {option.label}
-            </span>
         </span>;
     }
 }
@@ -153,7 +154,7 @@ const styles = {
         color: '#666666',
         cursor: 'pointer',
         display: 'block',
-        padding: '8px 10px',
+        padding: '12px 15px',
     },
     itemContainerHover: {
         backgroundColor: '#ebf5ff',
@@ -170,6 +171,10 @@ const styles = {
     labelDisabled: {
         opacity: 0.5,
     },
+    itemRenderer: {
+        display: 'flex',
+        justifyContent: 'space-between',
+    }
 };
 
 export default SelectItem;

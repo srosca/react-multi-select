@@ -127,20 +127,21 @@ var DefaultItemRenderer = function (_Component) {
             return _react2.default.createElement(
                 "span",
                 {
-                    className: "item-renderer"
+                    className: "item-renderer",
+                    style: _extends({}, styles.itemRenderer)
                 },
+                _react2.default.createElement(
+                    "span",
+                    { style: style },
+                    option.label
+                ),
                 _react2.default.createElement("input", {
                     type: "checkbox",
                     onChange: onClick,
                     checked: checked,
                     tabIndex: "-1",
                     disabled: disabled
-                }),
-                _react2.default.createElement(
-                    "span",
-                    { style: style },
-                    option.label
-                )
+                })
             );
         }
     }]);
@@ -277,7 +278,7 @@ var styles = {
         color: '#666666',
         cursor: 'pointer',
         display: 'block',
-        padding: '8px 10px'
+        padding: '12px 15px'
     },
     itemContainerHover: {
         backgroundColor: '#ebf5ff',
@@ -293,6 +294,10 @@ var styles = {
     },
     labelDisabled: {
         opacity: 0.5
+    },
+    itemRenderer: {
+        display: 'flex',
+        justifyContent: 'space-between'
     }
 };
 
@@ -534,7 +539,7 @@ var Dropdown = function (_Component) {
     return Dropdown;
 }(_react.Component);
 
-var focusColor = '#78c008';
+var focusColor = '#1298d4';
 
 var styles = {
     dropdownArrow: {
@@ -545,7 +550,7 @@ var styles = {
         textAlign: 'center',
         verticalAlign: 'middle',
         width: 25,
-        paddingRight: 5
+        paddingRight: 10
     },
     dropdownArrowDown: {
         boxSizing: 'border-box',
@@ -576,9 +581,9 @@ var styles = {
         bottom: 0,
         color: '#333',
         left: 0,
-        lineHeight: '34px',
-        paddingLeft: 10,
-        paddingRight: 10,
+        lineHeight: '47px',
+        paddingLeft: 15,
+        paddingRight: 15,
         position: 'absolute',
         right: 0,
         top: 0,
@@ -598,17 +603,14 @@ var styles = {
     dropdownHeader: {
         boxSizing: 'border-box',
         backgroundColor: '#fff',
-        borderColor: '#d9d9d9 #ccc #b3b3b3',
-        borderRadius: 4,
-        borderBottomRightRadius: 4,
-        borderBottomLeftRadius: 4,
+        borderColor: '#cfd4d9',
         border: '1px solid #ccc',
         color: '#333',
         cursor: 'default',
         display: 'table',
         borderSpacing: 0,
         borderCollapse: 'separate',
-        height: 36,
+        height: 47,
         outline: 'none',
         overflow: 'hidden',
         position: 'relative',
@@ -629,8 +631,6 @@ var styles = {
         width: '16px'
     },
     panelContainer: {
-        borderBottomRightRadius: '4px',
-        borderBottomLeftRadius: '4px',
         backgroundColor: '#fff',
         border: '1px solid #ccc',
         borderTopColor: '#e6e6e6',
@@ -835,6 +835,17 @@ var SelectPanel = function (_Component) {
                     role: 'listbox',
                     onKeyDown: this.handleKeyDown
                 },
+                hasSelectAll && _react2.default.createElement(_selectItem2.default, {
+                    focused: focusIndex === 0,
+                    checked: this.allAreSelected(),
+                    option: selectAllOption,
+                    onSelectionChanged: this.selectAllChanged,
+                    onClick: function onClick() {
+                        return _this2.handleItemClicked(0);
+                    },
+                    ItemRenderer: ItemRenderer,
+                    disabled: disabled
+                }),
                 !disableSearch && _react2.default.createElement(
                     'div',
                     { style: styles.searchContainer },
@@ -851,17 +862,6 @@ var SelectPanel = function (_Component) {
                         }
                     })
                 ),
-                hasSelectAll && _react2.default.createElement(_selectItem2.default, {
-                    focused: focusIndex === 0,
-                    checked: this.allAreSelected(),
-                    option: selectAllOption,
-                    onSelectionChanged: this.selectAllChanged,
-                    onClick: function onClick() {
-                        return _this2.handleItemClicked(0);
-                    },
-                    ItemRenderer: ItemRenderer,
-                    disabled: disabled
-                }),
                 _react2.default.createElement(_selectList2.default, _extends({}, this.props, {
                     options: this.filteredOptions(),
                     focusIndex: focusIndex - 1,
@@ -884,26 +884,23 @@ var styles = {
     },
     search: {
         display: "block",
-
         maxWidth: "100%",
-        borderRadius: "3px",
-
         boxSizing: 'border-box',
-        height: '30px',
-        lineHeight: '24px',
-        border: '1px solid',
-        borderColor: '#dee2e4',
-        padding: '10px',
+        height: '47px',
+        lineHeight: '45px',
+        border: 'none',
+        padding: '10px 15px',
         width: "100%",
         outline: "none"
     },
     searchFocused: {
-        borderColor: "#78c008"
+        borderColor: "#cfd4d9"
     },
     searchContainer: {
         width: "100%",
         boxSizing: 'border-box',
-        padding: "0.5em"
+        borderTop: '1px solid #cfd4d9',
+        borderBottom: '1px solid #cfd4d9'
     }
 };
 
@@ -1307,7 +1304,7 @@ var SelectList = function (_Component) {
             return options.map(function (o, i) {
                 return _react2.default.createElement(
                     'li',
-                    { style: styles.listItem, key: i },
+                    { style: styles.listItem, key: o.hasOwnProperty("key") ? o.key : i },
                     _react2.default.createElement(_selectItem2.default, {
                         focused: focusIndex === i,
                         option: o,
